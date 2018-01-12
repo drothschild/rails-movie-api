@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :V1 do
+      resources :films, defaults: {format: json}, only: [:index, :show]
+      resources :ratings, defaults: {format: json}, only: [:create, :update, :destroy]
 end

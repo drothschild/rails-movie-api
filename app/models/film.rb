@@ -10,6 +10,6 @@ class Film < ApplicationRecord
     end
 
     def related_film_ids
-        related_films.collect(&id)
+        related_films.collect{|film| film.id}
     end
 end

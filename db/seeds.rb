@@ -74,5 +74,5 @@ Film.create([
 
 Film.all.each do |film|
     other_films = Film.all.select{|f| f[:id] != film.id}
-    film.related_films = other_films.sample(rand(2))
+    film.related_films = other_films.sample(rand(3))
 end

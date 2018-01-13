@@ -1,11 +1,9 @@
 class Api::V1::FilmsController < ApplicationController
-
     def index
-      Film.all  
+      @films = Film.all  
+    end
+    def show
+       @film = Film.find(params[:id])
     end
 
-    def show
-        Film.find(params[:id])
-    end
-    
 end

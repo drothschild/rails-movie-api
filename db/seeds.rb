@@ -8,6 +8,7 @@
 
 Film.destroy_all
 FilmRelationship.destroy_all
+Rating.destroy_all
 
 Film.create([
   {
@@ -75,4 +76,7 @@ Film.create([
 Film.all.each do |film|
     other_films = Film.all.select{|f| f[:id] != film.id}
     film.related_films = other_films.sample(rand(3))
+    10.times do
+        film.ratings.push(Rating.create({score:1 + rand(5)}))
+    end
 end

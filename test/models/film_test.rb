@@ -10,8 +10,9 @@ class FilmTest < ActiveSupport::TestCase
 
     test "should average ratings" do
       a = Film.new(title: "a")
-      a.ratings.push(Rating.new(score:1))
-      a.ratings.push(Rating.new(score:3))
+      a.ratings.push(Rating.create(score:1))
+      a.ratings.push(Rating.create(score:3))
+      a.save
       assert_equal(2, a.average_rating)
     end
 end

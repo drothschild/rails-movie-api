@@ -8,8 +8,4 @@ class Film < ApplicationRecord
     def average_rating
         ratings.average(:score)
     end
-
-    def related_film_ids
-        related_films.collect{|film| film.id}
-    end
 end

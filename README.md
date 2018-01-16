@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple Film Database API in JSON using a Rails api. Sortable by title and year.
 
-Things you may want to cover:
+## Instructions
 
-* Ruby version
+1. Clone the repo and navigate to this folder in your console
+1. Console: ``bundle install``
+1. Console: ``rails db:create``
+1. Console: ``rails db:migrate``
+1. Console: ``rails db:seed''
+1. Console: ``rails s``
+1. open local host in your browser
 
-* System dependencies
+## Urls
 
-* Configuration
+All films: /api/v1/films
 
-* Database creation
+View a film: /api/v1/films/:id
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Rate a film: POST to /api/v1/ratings
+`` { "rating":{ "film_id": :id, "score": :score} }  ``

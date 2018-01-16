@@ -10,7 +10,7 @@ Simple Film Database API in JSON using a Rails api. Sortable by title and year.
 1. Console: ``rails db:migrate``
 1. Console: ``rails db:seed``
 1. Console: ``rails s``
-1. open local host in your browser
+1. Open local host in your browser
 
 ## Urls
 

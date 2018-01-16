@@ -9,11 +9,11 @@ class FilmsIndex
     attr_reader :controller
 
     def initialize(controller)
-        @controller = controller
+      @controller = controller
     end
 
     def films
-        @films ||= Film.all.order(sort_params).paginate(page: current_page, per_page: PER_PAGE)
+      @films ||= Film.all.paginate(page: current_page, per_page: PER_PAGE).order(sort_params)
     end
 
     def links
@@ -27,7 +27,7 @@ class FilmsIndex
   end
 
   private
-      def current_page
+    def current_page
       (params.to_unsafe_h.dig('page', 'number') || 1).to_i
     end
 
@@ -67,10 +67,8 @@ module SortParams
   def self.sorted_fields(sort, allowed, default)
     allowed = allowed.map(&:to_s)
     fields = sort.to_s.split(',')
-
     ordered_fields = convert_to_ordered_hash(fields)
     filtered_fields = ordered_fields.select { |key, value| allowed.include?(key) }
-
     filtered_fields.present? ? filtered_fields : default
   end
 

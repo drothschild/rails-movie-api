@@ -3,5 +3,3 @@ json.data do
         json.partial! "api/v1/films/film", film: film
     end
 end
-
-json.links @links

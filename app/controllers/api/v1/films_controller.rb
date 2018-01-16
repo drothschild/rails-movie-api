@@ -1,10 +1,7 @@
 class Api::V1::FilmsController < ApplicationController
-    require 'FilmsIndex'
-
+    include Sortable
     def index
-      films_index = FilmsIndex.new(self)
-      @links = films_index.links
-      @films = films_index.films
+        @films = Film.order(sorting_params(params)).all
     end
     
     def show
